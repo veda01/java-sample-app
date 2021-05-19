@@ -19,8 +19,7 @@ pipeline {
           steps {
               withSonarQubeEnv('sonarqube') {
                   sh '''${scannerHome}/bin/sonar-scanner \
-                      -Dsonar.login=b72f70ac766d440ea5bd8a3b71550730d2cbc32a \
-                      -Dsonar.branch.name=dev
+                      -Dsonar.login=b72f70ac766d440ea5bd8a3b71550730d2cbc32a
                   '''
               }
           }
