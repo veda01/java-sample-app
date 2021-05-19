@@ -30,33 +30,6 @@ pipeline {
               waitForQualityGate abortPipeline: true, credentialsId: 'sonartoken'}
           }
     }
-    // stage("Quality Gate") {
-    //   steps {
-    //       timeout(time: 2, unit: 'MINUTES') { 
-    //           script {
-    //             def qg = waitForQualityGate()
-    //             if (qg.status != 'OK') {
-    //                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
-    //             }
-    //           }
-    //       }
-    //   }
-    // }
-    // stage(“Quality Gate Status Check”) {
-    //     timeout(time: 1, unit: ‘HOURS’)// Just in case something goes wrong, pipeline will be killed after a timeout
-    //     // had previously tried using waitForQualityGate() and waitForQualityGate(webhookSecretId: ‘<webhook_secret_text>’ with same result
-    //     def qg = waitForQualityGate(webhookSecretId: ‘<webhook_secret_text>’, credentialsId: ‘<sonar_project_secret_text>’) // Reuse taskId previously collected by withSonarQubeEnv
-    //     if (qg.status != ‘OK’) {
-    //     error “Pipeline aborted due to quality gate failure: ${qg.status}”
-    // }
-    // stage("Wait for quality gate") {
-    //     steps {
-    //         timeout(time: 1, unit: 'HOURS') {
-    //             // "true" means the pipelines will be set to "UNSTABLE" if quality gate fails.
-    //             waitForQualityGate(abortPipeline: true, credentialsId: 'compte-robot-my-project-token-sonarqube')
-    //         }
-    //     }
-    // }  
   } 
         
   // post {
