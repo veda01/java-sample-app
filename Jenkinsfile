@@ -9,12 +9,12 @@ pipeline {
      causeString: 'Triggered on $ref',
 
      token: 'abc123',
-     tokenCredentialId: '',
+    //  tokenCredentialId: '',
 
-     printContributedVariables: true,
-     printPostContent: true,
+    //  printContributedVariables: true,
+    //  printPostContent: true,
 
-     silentResponse: false,
+    //  silentResponse: false,
 
      regexpFilterText: '$ref',
      regexpFilterExpression: 'refs/heads/'
