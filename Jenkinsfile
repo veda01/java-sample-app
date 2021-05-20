@@ -1,26 +1,26 @@
 pipeline {
   agent any
-  triggers {
-    GenericTrigger(
-     genericVariables: [
-      [key: 'ref', value: '$.ref']
-     ],
+//   triggers {
+//     GenericTrigger(
+//      genericVariables: [
+//       [key: 'ref', value: '$.ref']
+//      ],
 
-     causeString: 'Triggered on $ref',
+//      causeString: 'Triggered on $ref',
 
-     token: 'abc123',
-    //  tokenCredentialId: '',
+//      token: 'abc123',
+//     //  tokenCredentialId: '',
 
-    //  printContributedVariables: true,
-    //  printPostContent: true,
+//     //  printContributedVariables: true,
+//     //  printPostContent: true,
 
-    //  silentResponse: false,
+//     //  silentResponse: false,
 
-     regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/'
-    // //  regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
-    )
-  }
+//      regexpFilterText: '$ref',
+//      regexpFilterExpression: 'refs/heads/'
+//     // //  //regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+//     )
+//   }
   stages {     
     stage("BuildCode") {
             steps {
