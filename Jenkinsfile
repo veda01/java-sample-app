@@ -30,15 +30,15 @@ pipeline {
               waitForQualityGate abortPipeline: true, credentialsId: 'sonartoken'}
           }
     }
-    // stage ('Deploy To Prod') {
-    //     input{
-    //       message "Do you want to proceed for production deployment?"
-    //     }
-    //     steps {
-    //                 sh 'echo "Deploy into Prod"'
+    stage ('Deploy To Prod') {
+        input{
+          message "Do you want to proceed for production deployment?"
+        }
+        steps {
+                    sh 'echo "Deploy into Prod"'
 
-    //       }
-    // }
+          }
+    }
   } 
     post {
 
@@ -48,7 +48,7 @@ pipeline {
                 slackSend (color: "${env.SLACK_COLOR_WARNING}",
                         channel: "#jenkins-notification",
                         message: "*ABORTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}")
-            } // aborted
+            } /// aborted
 
             failure {
 
