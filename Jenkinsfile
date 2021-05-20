@@ -18,7 +18,7 @@ pipeline {
 
      regexpFilterText: '$ref',
      regexpFilterExpression: 'refs/heads/'
-    //  regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+    // //  regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
     )
   }
   stages {     
