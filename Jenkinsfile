@@ -47,7 +47,7 @@ pipeline {
                 echo "Sending message to Slack"
                 slackSend (color: "${env.SLACK_COLOR_WARNING}",
                         channel: "#jenkins-notification",
-                        message: "*ABORTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
+                        message: "*ABORTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}")
             } // aborted
 
             failure {
@@ -55,14 +55,14 @@ pipeline {
                 echo "Sending message to Slack"
                 slackSend (color: "${env.SLACK_COLOR_DANGER}",
                         channel: "#jenkins-notification",
-                        message: "*FAILED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
+                        message: "*FAILED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}")
             } // failure
 
             success {
                 echo "Sending message to Slack"
                 slackSend (color: "${env.SLACK_COLOR_GOOD}",
                         channel: "#jenkins-notification",
-                        message: "*SUCCESS:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
+                        message: "*SUCCESS:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}")
             } // success
 
     } 
