@@ -40,39 +40,32 @@ pipeline {
     //       }
     // }
   } 
-// post {
-//         always {
-//            emailext body: 'Test Message',
-//             subject: 'Test Subject',
-//             to: 'svadevops@gmail.com'
-//         }
-// }
-   post {
+    post {
 
-      aborted {
+            aborted {
 
-        echo "Sending message to Slack"
-        slackSend (color: "${env.SLACK_COLOR_WARNING}",
-                  channel: "jenkins-notification",
-                  message: "*ABORTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
-      } // aborted
+                echo "Sending message to Slack"
+                slackSend (color: "${env.SLACK_COLOR_WARNING}",
+                        channel: "#jenkins-notification",
+                        message: "*ABORTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
+            } // aborted
 
-      failure {
+            failure {
 
-        echo "Sending message to Slack"
-        slackSend (color: "${env.SLACK_COLOR_DANGER}",
-                  channel: "jenkins-notification",
-                  message: "*FAILED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
-      } // failure
+                echo "Sending message to Slack"
+                slackSend (color: "${env.SLACK_COLOR_DANGER}",
+                        channel: "#jenkins-notification",
+                        message: "*FAILED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
+            } // failure
 
-      success {
-        echo "Sending message to Slack"
-        slackSend (color: "${env.SLACK_COLOR_GOOD}",
-                  channel: "jenkins-notification",
-                  message: "*SUCCESS:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
-      } // success
+            success {
+                echo "Sending message to Slack"
+                slackSend (color: "${env.SLACK_COLOR_GOOD}",
+                        channel: "#jenkins-notification",
+                        message: "*SUCCESS:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${env.USER_ID}\n More info at: ${env.BUILD_URL}")
+            } // success
 
-  } // post
+    } 
         
         
 }
