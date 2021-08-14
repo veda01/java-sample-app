@@ -6,6 +6,7 @@ pipeline {
                 sh 'mvn clean install'
                 // stash includes: "./target/*.jar", name: "getJars"
                 sh 'ls -lrt ./target/*'
+                stash includes: '**/target/*.jar', name: 'app'
             }
     }
     stage('Unit-Test') {
