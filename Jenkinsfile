@@ -4,6 +4,7 @@ pipeline {
     stage("BuildCode") {
             steps {
                 sh 'mvn clean install'
+                stash includes: "./target/*.jar", name: "getJars"
                 sh 'ls -lrt ./target/*'
             }
     }
@@ -16,6 +17,9 @@ pipeline {
        
     stage ('Deploy To DEV') {
         steps {
+                    mkdir dummy
+                    unstash 'getJars'
+                    ls -lrt
                     sh 'echo "Deploy into Prod"'
 
           }
