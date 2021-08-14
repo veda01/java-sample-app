@@ -19,7 +19,7 @@ pipeline {
         steps {
                     mkdir dummy
                     unstash 'getJars'
-                    ls -lrt
+                    sh 'ls -lrt'
                     sh 'echo "Deploy into Prod"'
 
           }
