@@ -4,7 +4,7 @@ pipeline {
     stage("BuildCode") {
             steps {
                 sh 'mvn clean install'
-               
+                sh 'ls -lrt ./target/*'
             }
     }
     stage('Unit-Test') {
@@ -13,10 +13,21 @@ pipeline {
             }
     }
 
+       
+    stage ('Deploy To DEV') {
+        steps {
+                    sh 'echo "Deploy into Prod"'
+
+          }
+    }
+       
+    stage ('Deploy To UAT') {
+        steps {
+                    sh 'echo "Deploy into Prod"'
+
+          }
+    }    
     stage ('Deploy To Prod') {
-        input{
-          message "Do you want to proceed for production deployment?"
-        }
         steps {
                     sh 'echo "Deploy into Prod"'
 
