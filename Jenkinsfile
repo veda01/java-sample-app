@@ -14,29 +14,29 @@ pipeline {
             }
     }
 
-       
-    stage ('Deploy To DEV') {
-        steps {
-                    mkdir dummy
-                    // unstash 'getJars'
-                    // sh 'ls -lrt'
-                    sh 'echo "Deploy into Prod"'
+    parallel {
+        stage ('Deploy To DEV') {
+            steps {
+                        mkdir dummy
+                        // unstash 'getJars'
+                        // sh 'ls -lrt'
+                        sh 'echo "Deploy into Prod"'
 
-          }
-    }
-       
-    stage ('Deploy To UAT') {
-        steps {
-                    sh 'echo "Deploy into Prod"'
+            }
+        }
+        
+        stage ('Deploy To UAT') {
+            steps {
+                        sh 'echo "Deploy into Prod"'
 
-          }
-    }    
-    stage ('Deploy To Prod') {
-        steps {
-                    sh 'echo "Deploy into Prod"'
+            }
+        }    
+        stage ('Deploy To Prod') {
+            steps {
+                        sh 'echo "Deploy into Prod"'
 
-          }
-    }
-  } 
+            }
+        }
+    } 
                
 }
