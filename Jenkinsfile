@@ -19,6 +19,9 @@ pipeline {
                                 
                                 // unstash 'getJars'
                                 // sh 'ls -lrt'
+                                sh 'mkdir -p ./dummy'
+                                unstash 'app'
+                                sh 'ls -lrt'
                                 sh 'echo "Deploy into Prod"'
 
                     }
