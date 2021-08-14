@@ -17,7 +17,7 @@ pipeline {
             parallel {
                 stage ('Deploy To DEV') {
                     steps {
-                                mkdir dummy
+                                
                                 // unstash 'getJars'
                                 // sh 'ls -lrt'
                                 sh 'echo "Deploy into Prod"'
